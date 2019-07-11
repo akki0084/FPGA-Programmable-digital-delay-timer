@@ -1,0 +1,9 @@
+interface intf(input logic trigger, clk, reset);
+  
+  //declaring the signals
+
+  logic [7:0] Wb;
+  logic [1:0] mode;
+  logic delay_out;
+  
+endinterface
