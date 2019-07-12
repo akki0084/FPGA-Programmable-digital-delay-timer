@@ -9,6 +9,7 @@ reg [7:0]pulse_width;
 logic trigger_2=1'b0;
 logic trigger_1=1'b0;
 wire trigger_rise, trigger_fall;
+reg [7:0]delay;
 
 always_ff@(posedge clk)
 begin
@@ -33,8 +34,9 @@ case(mode)
 	2'b00: begin 		// one-shot mode
 		if (trigger_rise==1 && timer<pulse_width) begin
 		out<=0;
-		timer_start<=1;
-		timer_reset<=0; end
+		timer_start<=1; 
+		timer_reset<=0; 
+		delay=end
 		else	
 		if(timer>=pulse_width)begin
 		out<=1; 
@@ -119,7 +121,7 @@ begin
 if(out)
 delay_out<=0;
 else
-delay_out<=1;
+delay_out<=1;#10; 
 end
 endmodule
 

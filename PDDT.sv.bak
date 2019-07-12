@@ -66,6 +66,7 @@ end
 		out<=1;
 		timer_reset<=1;
 		timer_start<=0; end
+end
 	2'b10: begin			//delayed release mode
 		if(reset)begin
 		out<=1;
@@ -86,6 +87,7 @@ end
 		out<=0;
 		timer_start<=0;
 		timer_reset<=1;end
+end
 	2'b11: begin			//dual delay mode
 		if(trigger_rise==1 && timer<=pulse_width)begin
 		timer_start<=1;
